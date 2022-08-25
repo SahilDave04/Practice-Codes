@@ -1,0 +1,16 @@
+def is_leap(year):
+    stat = ""
+    if year%4 == 0:
+        stat = "leap"
+        if year%100 == 0:
+            stat = "not leap"
+            if year%400 == 0:
+                stat = "leap"
+    if stat == "leap":
+        deci = True
+    else:
+        deci = False
+    return deci;
+
+year = int(input())
+print(is_leap(year))
