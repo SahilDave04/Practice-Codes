@@ -1,0 +1,22 @@
+nums = [2, 5, 9, 0, 1, 8, 3]
+sec_nums = nums
+size = len(nums)
+count = 0;j = 0
+sm_nums = []
+while j < size:
+    if j == (size-1):
+        sm_nums.append(0)
+    else:
+        ele = sorted(x for x in sec_nums if x < sec_nums[0])
+        sm_nums.append(len(ele))
+    j = j + 1
+    sec_nums.pop(0)
+
+print(sm_nums)
+
+
+
+
+
+
+
