@@ -1,0 +1,42 @@
+def order(burst,priority,pros,n):
+    pros_order = []
+    bt_order = []
+    size = len(bt)
+    for i in range(n):
+        min_pr = min(priority)
+        index = priority.index(min_pr)
+        pros_order.append(pros[index])
+        bt_order.append(burst[index])
+        burst.remove(burst[index])
+        priority.remove(min_pr)
+        pros.remove(pros[index])
+    return pros_order,bt_order
+
+n = int(input("No. of processes : "))
+burst = []
+wait = 0
+wt = [0]
+pros = []
+priority = []
+tt = []
+for i in range(n):
+    bt = input("Burst Time for P" + str(i+1)+" : ")
+    pr = int(input("Priority of P"+str(i+1)+" : "))
+    burst.append(bt)
+    priority.append(pr)
+    pros.append("P"+str(i+1))
+p_order,b_order = order(burst,priority,pros,n)
+for j in range(len(p_order)-1):
+    wait = wait + int(b_order[j])
+    wt.append(wait)
+for k in range(n):
+    turn = wt[k] + int(b_order[k])
+    tt.append(turn)
+avg_wt = float(sum(wt)/n)
+avg_tt = float(sum(tt)/n)
+print("New Order of Processes : "+str(p_order))
+print("Burst Times order : "+str(b_order))
+print("Waiting Times : "+str(wt))
+print("Average Waiting Time : "+str(avg_wt))
+print("Turn Around Times : "+str(tt))
+print("Average TurnAround Time :"+str(avg_tt))
