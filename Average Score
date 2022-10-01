@@ -1,0 +1,18 @@
+scores = []
+avg_scores = []
+students = []
+n = int(input())
+for i in range(n):
+    scores = input().split()
+    temp_name = scores[0]
+    scores.remove(temp_name)
+    students.append(temp_name)
+    for j in range(len(scores)):
+        scores[j] = float(scores[j])
+    temp_avg = (sum(scores))/3
+    avg_scores.append(temp_avg)
+    scores.clear()
+student_name = input("")
+locate = students.index(student_name)
+averag = avg_scores[locate]
+print("%.2f" % averag)
